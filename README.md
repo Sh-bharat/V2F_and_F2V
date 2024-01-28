@@ -1,48 +1,48 @@
 ---
 
-# V2F_and_F2V.py
+# Video to Frame and Frame to Video Converter
 
 ## Overview
 
-This Python script is designed to convert a video file into individual frames and vice versa using the OpenCV library. It takes a user-input video file path, extracts frames from the video, and saves them as individual image files. Additionally, it can convert a sequence of frames back into a video.
+This Python script, `V2F_and_F2V.py`, is designed to convert a video file into individual frames and then reconstruct those frames back into a video. It uses the OpenCV library for video processing.
 
 ## Requirements
 
-- Python 3.x
-- OpenCV (cv2) library
+- Python 3
+- OpenCV library (`cv2`)
 
-## How to Use
+## Usage
 
-1. **Install Dependencies:**
+1. Clone or download the repository.
+2. Ensure that you have Python 3 installed.
+3. Install the required library using:
 
-   Make sure you have Python installed on your system. You can install the required libraries using the following command:
+    ```bash
+    pip install opencv-python
+    ```
 
-   ```bash
-   pip install opencv-python
-   ```
+4. Run the script:
 
-2. **Run the Script:**
+    ```bash
+    python V2F_and_F2V.py
+    ```
 
-   Execute the script using a Python interpreter. You will be prompted to enter the path of the video file. The script will then process the video and save the frames in the same directory as the script.
+5. Enter the full path of the video file when prompted.
 
-   ```bash
-   python V2F_and_F2V.py
-   ```
+6. The script will process the video, converting it into individual frames and then reconstructing those frames back into a video.
 
-3. **Output:**
+## Output
 
-   - For Video to Frames (V2F):
-
-     The frames will be saved as individual image files (e.g., `frame0.jpg`, `frame1.jpg`, ...) in the same directory as the script.
-
-   - For Frames to Video (F2V):
-
-     The script will convert the frames (assuming they follow a sequential naming pattern) back into a video file.
+The script will generate an output video file named `Output.avi` in the same directory as the script.
 
 ## Notes
 
 - Make sure the video file exists at the specified path.
-- The frame interval is set to match the frames per second (fps) of the input video.
-- The script will raise an error if the file is not found.
+- The script uses the DIVX codec for the output video. Ensure that your system supports this codec.
+
+## Author
+
+[Bharat_Sharma]
+
 
 ---
