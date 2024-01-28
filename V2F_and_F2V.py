@@ -1,30 +1,31 @@
-# Vedio to Frame and Frame to Vedio
-import cv2
+# Vedio to Frame and Frame to Vedioimport cv2
 import os
 
+output_frames=[]
 path=input("Enter Vedio Path : ")
 if (os.path.exists(path)):
     vedio = cv2.VideoCapture(path)
+    print("Found")
+    success,image=vedio.read()
+    height, width, layers = image.shape
+    size = (width,height)
     fps = vedio.get(cv2.CAP_PROP_FPS)
     frame_interval = int(fps)
 
-    success, image = vedio.read()
-    count = 0
-
-    while success:
-        frame_filename = os.path.join(output_directory, f"frame{count}.jpg")
-        cv2.imwrite(frame_filename, image)
-
-        if not os.path.isfile(frame_filename):
-            print(f"Error: Failed to save frame {count}.")
-            exit()
-
-        for i in range(frame_interval):
-            success, image = vidcap.read()
-
-        print(f"Saved frame {count} to {frame_filename}")
-        count += 1
-
-    vidcap.release()
+    while success:        
+        success, image = vedio.read() 
+#         image is an 3D Array of RGB image 
+        
+        
+        
+        
+        
+        image1=image
+        output_frames.append(image1)        
+        
+    out = cv2.VideoWriter('Output.avi',cv2.VideoWriter_fourcc(*'DIVX'), fps, size) 
+    for i in range(len(output_frames)):
+        out.write(output_frames[i])
+    out.release()
 else:
     raise IOError("Error: File  not Found. ")
